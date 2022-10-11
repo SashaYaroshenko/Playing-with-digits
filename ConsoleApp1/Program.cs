@@ -19,6 +19,7 @@ namespace ConsoleApp1
         public static long digPow(int n, int p)
         {        
             n = Math.Abs(n);
+
             char[]chars = n.ToString().ToCharArray();
             List<double> charsDouble = new List<double>();
             for(int i = 0; i < chars.Length; i++)
