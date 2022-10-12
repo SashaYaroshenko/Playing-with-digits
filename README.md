@@ -1,36 +1,28 @@
 # GettheSumofMultiplesofTriangularNumbers
-https://www.codewars.com/kata/566afbfc8595f2e751000040/train/csharp
+https://www.codewars.com/kata/5552101f47fc5178b1000050/train/csharp
 
-The triangular numbers, Tn, may be obtained by this formula:
+Some numbers have funny properties. For example:
 ```
-T(n) = n * (n + 1) / 2
+89 --> 8¹ + 9² = 89 * 1
 ```
-We select, for example, the first 5 (n terms) consecutive terms of this sequence.
-
-They will be: 1, 3, 6, 10 and 15
-
-Now we want to obtain, again for example, the first 8 (m terms) consecutive multiples to all of these five triangular numbers.
-
-The least common multiple of them will be, 30, so the first eight multiple terms (for the sequence of the above five triangular numbers) will be:
-
-30, 60, 90, 120, 150, 180, 210 and 240
-
-Finally the sum of all these multiples will be: 30 + 60 + 90 + 120 + 150 + 180 + 210 + 240 = 1080
-
-We want the function sum_mult_triangnum() that may calculate this sum with different values of n and m terms.
-
-Let's see some cases:
 ```
-n = 5
-m = 8
-sum_mult_triangnum(n, m) = 1080
+695 --> 6² + 9³ + 5⁴= 1390 = 695 * 2
 ```
-Another case:
+46288 --> 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
 ```
-n = 7
-m = 10
-sum_mult_triangnum(n, m) = 23100
-```
-The values of n and m will be always integer values higher than 2.
+Given a positive integer n written as abcd... (a, b, c, d... being digits) and a positive integer p
 
-Enjoy it!!
+* we want to find a positive integer k, if it exists, such that the sum of the digits of n taken to the successive powers of p is equal to k * n.
+In other words:
+```
+Is there an integer k such as : (a ^ p + b ^ (p+1) + c ^(p+2) + d ^ (p+3) + ...) = n * k
+```
+If it is the case we will return k, if not return -1.
+
+Note: n and p will always be given as strictly positive integers.
+```
+digPow(89, 1) should return 1 since 8¹ + 9² = 89 = 89 * 1
+digPow(92, 1) should return -1 since there is no k such as 9¹ + 2² equals 92 * k
+digPow(695, 2) should return 2 since 6² + 9³ + 5⁴= 1390 = 695 * 2
+digPow(46288, 3) should return 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
+```
