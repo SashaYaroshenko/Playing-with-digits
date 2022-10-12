@@ -8,6 +8,7 @@ Some numbers have funny properties. For example:
 ```
 695 --> 6² + 9³ + 5⁴= 1390 = 695 * 2
 ```
+```
 46288 --> 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
 ```
 Given a positive integer n written as abcd... (a, b, c, d... being digits) and a positive integer p
