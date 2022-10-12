@@ -10,34 +10,27 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            DigPow.digPow(-89, 1);
+            DigPow.digPow(89, 1);
         }
     }
 
     public class DigPow
     {
         public static long digPow(int n, int p)
-        {        
-            n = Math.Abs(n);
-            char[]chars = n.ToString().ToCharArray();
-            List<double> charsDouble = new List<double>();
-            for(int i = 0; i < chars.Length; i++)
-            {
-                charsDouble.Add(Convert.ToDouble(chars[i].ToString()));
-            }
-            double sum = 0;
-            for(int i = 0; i < charsDouble.Count; i++)
-            {
-                sum += Math.Pow(charsDouble[i], p);
-                p++;
-            }
-            if(sum<n)
+        {
+            char[] chars = n.ToString().ToCharArray();
+            int[] arr = chars.Select(x => (int)char.GetNumericValue(x)).ToArray();
+            long sum = arr.Select(x => (long)Math.Pow(x, p++)).Sum();
+            //for (int i = 0; i < arr.Length; i++, p++)
+            //{
+            //    sum += (long)Math.Pow(arr[i], p);
+            //}
+            if (sum < n || sum % n != 0)
             {
                 return -1;
             }
-            double res = sum/ n;
-            return Convert.ToInt64(res.ToString());
-
+            long res = sum / n;
+            return res;
         }
     }
 }
